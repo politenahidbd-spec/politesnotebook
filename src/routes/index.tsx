@@ -30,6 +30,7 @@ function Home() {
             Polite Nahid
           </Link>
           .
+        </p>
         <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
           <Link to="/photography" className="hover:text-foreground">Photography</Link>
           <span aria-hidden>·</span>
