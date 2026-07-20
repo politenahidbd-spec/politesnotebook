@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: politenahid/politesnotebook
   branch: main
 
 media_folder: "public/uploads"
