@@ -43,11 +43,6 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <footer className="border-t border-rule mt-24">
         <div className="container-editorial py-10 flex flex-col md:flex-row md:justify-between gap-3 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Polite Nahid. A notebook, still being written.</p>
-          <p>
-            <a href="/rss.xml" className="hover:text-foreground">RSS</a>
-            <span className="mx-2">·</span>
-            <a href="/admin/" className="hover:text-foreground">Admin</a>
-          </p>
         </div>
       </footer>
     </div>
