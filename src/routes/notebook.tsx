@@ -9,7 +9,10 @@ export const Route = createFileRoute("/notebook")({
   head: () => ({
     meta: [
       { title: "Notebook — Polite Nahid" },
-      { name: "description", content: "Every entry, in chronological order." },
+      { name: "description", content: "The full archive of Polite Nahid's notebook — every photograph, essay, film and note in chronological order, filterable by category and searchable." },
+      { property: "og:title", content: "Notebook — the full archive" },
+      { property: "og:description", content: "Every entry in Polite Nahid's notebook, in chronological order — photographs, writing, films and short notes." },
+      { property: "og:url", content: "/notebook" },
     ],
     links: [{ rel: "canonical", href: "/notebook" }],
   }),

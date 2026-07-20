@@ -6,7 +6,10 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — Polite Nahid" },
-      { name: "description", content: "A personal note from Polite Nahid." },
+      { name: "description", content: "A personal note from Polite Nahid — photographer, writer and filmmaker — on why this notebook exists and how it's kept." },
+      { property: "og:title", content: "About Polite Nahid" },
+      { property: "og:description", content: "Why this public notebook exists — a working record of photographs, writing and short films by Polite Nahid." },
+      { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),

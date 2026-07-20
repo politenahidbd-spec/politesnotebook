@@ -1,0 +1,20 @@
+# Polite Nahid — Notebook
+
+> A public notebook by Polite Nahid — photographer, writer and filmmaker. Photographs, essays, short films and marginalia, kept in chronological order.
+
+The notebook is a working record rather than a portfolio. New entries are added as they're made and organised into four categories: photography (collections and visual sequences), writing (essays and reflections), films (short documentary work) and notes (short observations).
+
+## Pages
+
+- [Home](/): Latest notebook entries in chronological order.
+- [Notebook](/notebook): Full archive with category filters and search.
+- [Photography](/photography): Photographic collections and visual stories.
+- [Writing](/writing): Essays on photography, attention and craft.
+- [Films](/films): Short films and documentary sketches, with production notes.
+- [Notes](/notes): Short observations and marginalia.
+- [About](/about): Who Polite Nahid is and why the notebook exists.
+- [Contact](/contact): Ways to get in touch.
+
+## Optional
+
+- [RSS feed](/rss.xml): Subscribe to new entries.

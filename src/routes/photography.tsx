@@ -7,7 +7,10 @@ export const Route = createFileRoute("/photography")({
   head: () => ({
     meta: [
       { title: "Photography — Polite Nahid" },
-      { name: "description", content: "Visual stories and photographic collections." },
+      { name: "description", content: "Photographic collections and visual stories by Polite Nahid — portraits, street scenes and long-form documentary work, shown in sequence rather than as galleries." },
+      { property: "og:title", content: "Photography — Polite Nahid" },
+      { property: "og:description", content: "Long-form photographic collections and documentary sequences — portraits, streets and quiet observations." },
+      { property: "og:url", content: "/photography" },
     ],
     links: [{ rel: "canonical", href: "/photography" }],
   }),
