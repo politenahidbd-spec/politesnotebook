@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WritingRouteImport } from './routes/writing'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
 import { Route as PhotographyRouteImport } from './routes/photography'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as NotebookRouteImport } from './routes/notebook'
@@ -22,6 +24,16 @@ import { Route as EntryCategorySlugRouteImport } from './routes/entry.$category.
 const WritingRoute = WritingRouteImport.update({
   id: '/writing',
   path: '/writing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RssDotxmlRoute = RssDotxmlRouteImport.update({
+  id: '/rss.xml',
+  path: '/rss.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PhotographyRoute = PhotographyRouteImport.update({
@@ -73,6 +85,8 @@ export interface FileRoutesByFullPath {
   '/notebook': typeof NotebookRoute
   '/notes': typeof NotesRoute
   '/photography': typeof PhotographyRoute
+  '/rss.xml': typeof RssDotxmlRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/writing': typeof WritingRoute
   '/entry/$category/$slug': typeof EntryCategorySlugRoute
 }
@@ -84,6 +98,8 @@ export interface FileRoutesByTo {
   '/notebook': typeof NotebookRoute
   '/notes': typeof NotesRoute
   '/photography': typeof PhotographyRoute
+  '/rss.xml': typeof RssDotxmlRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/writing': typeof WritingRoute
   '/entry/$category/$slug': typeof EntryCategorySlugRoute
 }
@@ -96,6 +112,8 @@ export interface FileRoutesById {
   '/notebook': typeof NotebookRoute
   '/notes': typeof NotesRoute
   '/photography': typeof PhotographyRoute
+  '/rss.xml': typeof RssDotxmlRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/writing': typeof WritingRoute
   '/entry/$category/$slug': typeof EntryCategorySlugRoute
 }
@@ -109,6 +127,8 @@ export interface FileRouteTypes {
     | '/notebook'
     | '/notes'
     | '/photography'
+    | '/rss.xml'
+    | '/sitemap.xml'
     | '/writing'
     | '/entry/$category/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -120,6 +140,8 @@ export interface FileRouteTypes {
     | '/notebook'
     | '/notes'
     | '/photography'
+    | '/rss.xml'
+    | '/sitemap.xml'
     | '/writing'
     | '/entry/$category/$slug'
   id:
@@ -131,6 +153,8 @@ export interface FileRouteTypes {
     | '/notebook'
     | '/notes'
     | '/photography'
+    | '/rss.xml'
+    | '/sitemap.xml'
     | '/writing'
     | '/entry/$category/$slug'
   fileRoutesById: FileRoutesById
@@ -143,6 +167,8 @@ export interface RootRouteChildren {
   NotebookRoute: typeof NotebookRoute
   NotesRoute: typeof NotesRoute
   PhotographyRoute: typeof PhotographyRoute
+  RssDotxmlRoute: typeof RssDotxmlRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WritingRoute: typeof WritingRoute
   EntryCategorySlugRoute: typeof EntryCategorySlugRoute
 }
@@ -154,6 +180,20 @@ declare module '@tanstack/react-router' {
       path: '/writing'
       fullPath: '/writing'
       preLoaderRoute: typeof WritingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rss.xml': {
+      id: '/rss.xml'
+      path: '/rss.xml'
+      fullPath: '/rss.xml'
+      preLoaderRoute: typeof RssDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/photography': {
@@ -223,6 +263,8 @@ const rootRouteChildren: RootRouteChildren = {
   NotebookRoute: NotebookRoute,
   NotesRoute: NotesRoute,
   PhotographyRoute: PhotographyRoute,
+  RssDotxmlRoute: RssDotxmlRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   WritingRoute: WritingRoute,
   EntryCategorySlugRoute: EntryCategorySlugRoute,
 }

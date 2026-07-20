@@ -11,9 +11,10 @@ export const Route = createFileRoute("/sitemap.xml")({
         const staticPaths = ["/", "/notebook", "/photography", "/writing", "/films", "/notes", "/about", "/contact"];
         const entries = getAllEntries();
 
-        const urls = [
-          ...staticPaths.map((p) => ({ loc: p, changefreq: "weekly", priority: p === "/" ? "1.0" : "0.7" })),
-          ...entries.map((e) => ({
+        type Url = { loc: string; changefreq: string; priority: string; lastmod?: string };
+        const urls: Url[] = [
+          ...staticPaths.map((p): Url => ({ loc: p, changefreq: "weekly", priority: p === "/" ? "1.0" : "0.7" })),
+          ...entries.map((e): Url => ({
             loc: `/entry/${e.category}/${e.slug}`,
             lastmod: e.date || undefined,
             changefreq: "monthly",
