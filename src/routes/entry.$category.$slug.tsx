@@ -101,7 +101,7 @@ function EntryPage() {
 
         {entry.category === "photography" && entry.gallery && entry.gallery.length > 0 ? (
           <div className="container-editorial mt-16 space-y-16">
-            {entry.gallery.map((src, i) => (
+            {entry.gallery.map((src: string, i: number) => (
               <img key={i} src={src} alt="" loading="lazy" width={2000} height={1333} className="w-full h-auto" />
             ))}
           </div>
