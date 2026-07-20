@@ -7,7 +7,10 @@ export const Route = createFileRoute("/writing")({
   head: () => ({
     meta: [
       { title: "Writing — Polite Nahid" },
-      { name: "description", content: "Essays and short pieces, meant to be read slowly." },
+      { name: "description", content: "Essays and short pieces by Polite Nahid — reflections on photography, attention and craft, set in a book-like reading layout meant to be read slowly." },
+      { property: "og:title", content: "Writing — Polite Nahid" },
+      { property: "og:description", content: "Essays on photography, attention and craft — a book-like reading room inside the notebook." },
+      { property: "og:url", content: "/writing" },
     ],
     links: [{ rel: "canonical", href: "/writing" }],
   }),

@@ -7,7 +7,10 @@ export const Route = createFileRoute("/films")({
   head: () => ({
     meta: [
       { title: "Films — Polite Nahid" },
-      { name: "description", content: "Documented works, short films and moving images." },
+      { name: "description", content: "Short films, documentary sketches and moving-image work by Polite Nahid — each piece documented with notes on how and why it was made." },
+      { property: "og:title", content: "Films — Polite Nahid" },
+      { property: "og:description", content: "Short films and documentary sketches, each shown alongside production notes and stills." },
+      { property: "og:url", content: "/films" },
     ],
     links: [{ rel: "canonical", href: "/films" }],
   }),

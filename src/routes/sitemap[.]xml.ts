@@ -2,13 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { getAllEntries } from "@/lib/content";
 
-const BASE_URL = "";
+const BASE_URL = "https://politesnotebook.lovable.app";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const staticPaths = ["/", "/notebook", "/photography", "/writing", "/films", "/notes", "/about", "/contact"];
+        const staticPaths = ["/", "/notebook", "/photography", "/writing", "/films", "/notes", "/about", "/contact", "/rss.xml"];
         const entries = getAllEntries();
 
         type Url = { loc: string; changefreq: string; priority: string; lastmod?: string };

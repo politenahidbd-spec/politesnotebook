@@ -6,10 +6,6 @@ import { getAllEntries } from "@/lib/content";
 export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
-    meta: [
-      { title: "Polite Nahid — Notebook" },
-      { name: "description", content: "Things I noticed. Photographs, writings, films and notes by Polite Nahid." },
-    ],
     links: [{ rel: "canonical", href: "/" }],
   }),
 });
