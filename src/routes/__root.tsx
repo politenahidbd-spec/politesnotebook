@@ -11,26 +11,20 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SiteLayout } from "@/components/site-layout";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
+    <SiteLayout>
+      <div className="container-reading py-24 text-center">
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">404</p>
+        <h1 className="mt-4 text-3xl font-medium tracking-tighter">This page hasn't been written.</h1>
+        <p className="mt-3 text-muted-foreground">Perhaps a note that never made it into the notebook.</p>
+        <div className="mt-8">
+          <Link to="/" className="underline underline-offset-4">Return to the notebook</Link>
         </div>
       </div>
-    </div>
+    </SiteLayout>
   );
 }
 
@@ -42,33 +36,21 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
-        </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+    <SiteLayout>
+      <div className="container-reading py-24 text-center">
+        <h1 className="text-2xl font-medium tracking-tighter">Something broke, quietly.</h1>
+        <p className="mt-3 text-muted-foreground">Try again, or head back to the notebook.</p>
+        <div className="mt-8 flex justify-center gap-6 text-sm">
           <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            onClick={() => { router.invalidate(); reset(); }}
+            className="underline underline-offset-4"
           >
             Try again
           </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
-          </a>
+          <a href="/" className="underline underline-offset-4">Home</a>
         </div>
       </div>
-    </div>
+    </SiteLayout>
   );
 }
 
@@ -77,21 +59,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Polite Nahid — Notebook" },
+      { name: "description", content: "Things I noticed. Photographs, writings, films and notes by Polite Nahid." },
+      { name: "author", content: "Polite Nahid" },
+      { property: "og:title", content: "Polite Nahid — Notebook" },
+      { property: "og:description", content: "Things I noticed. Photographs, writings, films and notes." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Polite Nahid" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://rsms.me" },
+      { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
+      { rel: "alternate", type: "application/rss+xml", title: "Polite Nahid — Notebook", href: "/rss.xml" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Polite Nahid",
+          jobTitle: "Photographer, writer, filmmaker",
+          url: "/",
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -116,10 +110,8 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );

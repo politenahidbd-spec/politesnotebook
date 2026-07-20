@@ -1,0 +1,49 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { SiteLayout } from "@/components/site-layout";
+import { getEntriesByCategory, formatDate } from "@/lib/content";
+
+export const Route = createFileRoute("/photography")({
+  component: Photography,
+  head: () => ({
+    meta: [
+      { title: "Photography — Polite Nahid" },
+      { name: "description", content: "Visual stories and photographic collections." },
+    ],
+    links: [{ rel: "canonical", href: "/photography" }],
+  }),
+});
+
+function Photography() {
+  const items = getEntriesByCategory("photography");
+  return (
+    <SiteLayout>
+      <section className="container-editorial pt-16 pb-8">
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">Photography</p>
+        <h1 className="mt-4 text-4xl md:text-5xl font-medium tracking-tightest max-w-2xl">Collections and visual stories.</h1>
+      </section>
+
+      <div className="border-t border-rule" />
+
+      <section className="container-editorial py-12 md:py-16 space-y-20 md:space-y-28">
+        {items.map((c) => (
+          <article key={c.slug}>
+            <Link to="/entry/$category/$slug" params={{ category: "photography", slug: c.slug }} className="group block">
+              {c.cover ? (
+                <div className="mb-6 overflow-hidden bg-muted">
+                  <img src={c.cover} alt="" loading="lazy" width={2000} height={1333} className="w-full h-auto transition-opacity duration-500 group-hover:opacity-90" />
+                </div>
+              ) : null}
+              <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-xs text-muted-foreground">
+                {c.year ? <span>{c.year}</span> : <time>{formatDate(c.date)}</time>}
+                {c.location ? <><span aria-hidden>·</span><span>{c.location}</span></> : null}
+              </div>
+              <h2 className="mt-3 text-2xl md:text-3xl font-medium tracking-tighter">{c.title}</h2>
+              {c.excerpt ? <p className="mt-3 text-muted-foreground max-w-2xl leading-relaxed">{c.excerpt}</p> : null}
+            </Link>
+          </article>
+        ))}
+        {items.length === 0 ? <p className="text-muted-foreground">No collections yet.</p> : null}
+      </section>
+    </SiteLayout>
+  );
+}
