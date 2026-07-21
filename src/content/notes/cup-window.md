@@ -1,9 +1,10 @@
 ---
-title: "A cup, a window"
-date: "2026-06-01"
-slug: "cup-window"
-category: "notes"
-tags: ["morning"]
+title: A cup, a window
+date: 2026-06-01
+slug: cup-windows
+category: notes
+tags:
+  - morning
 draft: false
 ---
 
