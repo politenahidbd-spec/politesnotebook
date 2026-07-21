@@ -79,7 +79,7 @@
 
 @utility prose-notebook {
   font-size: 1.0625rem;
-  line-height: 1.75;
+  line-height: 1.8;
   color: var(--color-foreground);
 
   & h1, & h2, & h3 {
