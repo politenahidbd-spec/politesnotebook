@@ -46,7 +46,7 @@ function Home() {
 
       <section className="container-editorial py-12 md:py-16">
         {featured ? (
-          <div className="mb-16 md:mb-24">
+          <div className="mb-16 md:mb-24 mx-auto max-w-[1000px]">
             <EntryCard entry={featured} priority />
           </div>
         ) : null}
