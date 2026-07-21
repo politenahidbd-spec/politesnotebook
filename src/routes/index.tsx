@@ -18,7 +18,7 @@ function Home() {
     <SiteLayout>
       <section className="container-editorial pt-16 md:pt-24 pb-12">
         <p className="text-xs uppercase tracking-widest text-muted-foreground">The notebook</p>
-        <h1 className="mt-4 text-4xl md:text-6xl font-medium tracking-tightest leading-[1.05] max-w-3xl">
+        <h1 className="mt-4 text-4xl md:text-5xl font-medium tracking-tightest leading-[1.1] max-w-3xl">
           Things I noticed.
         </h1>
         <p className="mt-5 text-lg text-muted-foreground max-w-xl leading-relaxed">
@@ -46,7 +46,7 @@ function Home() {
 
       <section className="container-editorial py-12 md:py-16">
         {featured ? (
-          <div className="mb-16 md:mb-24">
+          <div className="mb-16 md:mb-24 mx-auto max-w-[1000px]">
             <EntryCard entry={featured} priority />
           </div>
         ) : null}

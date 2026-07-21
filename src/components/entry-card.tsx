@@ -11,18 +11,17 @@ export function EntryCard({ entry, priority = false }: { entry: Entry; priority?
         className="block"
       >
         {entry.cover ? (
-          <div className="mb-5 overflow-hidden bg-muted">
+          <div className="mb-4 md:mb-5 overflow-hidden bg-muted">
             <img
               src={entry.cover}
-              alt=""
+              alt={entry.title}
               loading={priority ? "eager" : "lazy"}
-              width={1600}
-              height={1067}
+              decoding="async"
               className="w-full h-auto object-cover transition-opacity duration-500 group-hover:opacity-90"
             />
           </div>
         ) : null}
-        <div className="flex items-center gap-3 text-xs text-muted-foreground mb-2">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground mb-2">
           <span>{categoryLabel(entry.category)}</span>
           <span aria-hidden>·</span>
           <time dateTime={entry.date}>{formatDate(entry.date)}</time>
