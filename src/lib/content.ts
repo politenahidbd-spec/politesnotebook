@@ -104,6 +104,14 @@ export function getAllEntries(): Entry[] {
   return entries;
 }
 
+export function getFeaturedEntry(): Entry | undefined {
+  const eligible = entries.filter(e => e.category !== "notes");
+  const marked = eligible.filter(e => e.featured);
+  if (marked.length > 0) return marked[0];
+  return eligible[0];
+}
+
+
 export function getEntriesByCategory(cat: Category): Entry[] {
   return entries.filter(e => e.category === cat);
 }
