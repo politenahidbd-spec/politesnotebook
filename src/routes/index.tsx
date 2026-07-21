@@ -18,17 +18,33 @@ function Home() {
 
   return (
     <SiteLayout>
+      <section className="container-editorial pt-16 md:pt-24 pb-10 md:pb-14">
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">The notebook</p>
+        <h1 className="mt-4 text-4xl md:text-5xl font-medium tracking-tightest leading-[1.1] max-w-3xl">
+          Things I noticed.
+        </h1>
+        <p className="mt-5 text-lg text-muted-foreground max-w-xl leading-relaxed">
+          Photographs, writings, films and notes. By{" "}
+          <Link
+            to="/about"
+            className="font-semibold text-foreground underline underline-offset-4 decoration-1 hover:decoration-foreground"
+          >
+            Polite Nahid
+          </Link>
+          .
+        </p>
+      </section>
+
+      <div className="border-t border-rule" />
+
       {featured ? <FeaturedStory entry={featured} /> : null}
 
       <div className="border-t border-rule" />
 
       <section className="container-editorial py-12 md:py-16">
-        <div className="flex items-baseline justify-between mb-8 md:mb-10">
-          <h2 className="text-xs uppercase tracking-widest text-muted-foreground">The archive</h2>
-          <Link to="/notebook" className="text-xs text-muted-foreground hover:text-foreground">
-            All entries →
-          </Link>
-        </div>
+        <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-8 md:mb-10">
+          The notebook
+        </h2>
 
         {archive.length === 0 ? (
           <p className="text-muted-foreground text-sm">The notebook is empty.</p>
