@@ -2,7 +2,7 @@
 title: test image
 date: 2026-07-22T00:46:00.000+06:00
 slug: testImg
-cover: /uploads/chatgpt-image-jul-18-2026-09_05_12-pm.png
+cover: /uploads/2089485-200.png
 excerpt: tst
 draft: false
 featured: false
