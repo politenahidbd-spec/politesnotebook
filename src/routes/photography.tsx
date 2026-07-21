@@ -29,19 +29,19 @@ function Photography() {
 
       <section className="container-editorial py-12 md:py-16 space-y-20 md:space-y-28">
         {items.map((c) => (
-          <article key={c.slug}>
+          <article key={c.slug} className="mx-auto max-w-[1000px]">
             <Link to="/entry/$category/$slug" params={{ category: "photography", slug: c.slug }} className="group block">
               {c.cover ? (
                 <div className="mb-6 overflow-hidden bg-muted">
-                  <img src={c.cover} alt="" loading="lazy" width={2000} height={1333} className="w-full h-auto transition-opacity duration-500 group-hover:opacity-90" />
+                  <img src={c.cover} alt={c.title} loading="lazy" decoding="async" className="w-full h-auto transition-opacity duration-500 group-hover:opacity-90" />
                 </div>
               ) : null}
               <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-xs text-muted-foreground">
                 {c.year ? <span>{c.year}</span> : <time>{formatDate(c.date)}</time>}
                 {c.location ? <><span aria-hidden>·</span><span>{c.location}</span></> : null}
               </div>
-              <h2 className="mt-3 text-2xl md:text-3xl font-medium tracking-tighter">{c.title}</h2>
-              {c.excerpt ? <p className="mt-3 text-muted-foreground max-w-2xl leading-relaxed">{c.excerpt}</p> : null}
+              <h2 className="mt-3 text-xl md:text-2xl font-medium tracking-tighter">{c.title}</h2>
+              {c.excerpt ? <p className="mt-2 text-sm md:text-base text-muted-foreground max-w-2xl leading-relaxed">{c.excerpt}</p> : null}
             </Link>
           </article>
         ))}
