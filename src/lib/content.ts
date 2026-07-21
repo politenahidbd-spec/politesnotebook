@@ -91,6 +91,7 @@ const entries: Entry[] = Object.entries(raw)
       video: data.video as string | undefined,
       gallery: (data.gallery as string[]) || [],
       draft: Boolean(data.draft),
+      featured: Boolean(data.featured),
       body,
       html: marked.parse(body, { async: false }) as string,
       readingTime: readingTimeFrom(body),
