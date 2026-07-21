@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
+import { EntryCard } from "@/components/entry-card";
 import { getAllEntries, getFeaturedEntry, categoryLabel, formatDate, type Entry } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
@@ -49,11 +50,11 @@ function Home() {
         {archive.length === 0 ? (
           <p className="text-muted-foreground text-sm">The notebook is empty.</p>
         ) : (
-          <ul className="divide-y divide-rule">
+          <div className="grid gap-12 md:gap-16 md:grid-cols-2">
             {archive.map((entry) => (
-              <ArchiveRow key={`${entry.category}-${entry.slug}`} entry={entry} />
+              <EntryCard key={`${entry.category}-${entry.slug}`} entry={entry} />
             ))}
-          </ul>
+          </div>
         )}
       </section>
     </SiteLayout>
@@ -118,43 +119,3 @@ function FeaturedStory({ entry }: { entry: Entry }) {
   );
 }
 
-function ArchiveRow({ entry }: { entry: Entry }) {
-  return (
-    <li>
-      <Link
-        to="/entry/$category/$slug"
-        params={{ category: entry.category, slug: entry.slug }}
-        className="group grid grid-cols-[64px_minmax(0,1fr)] md:grid-cols-[96px_minmax(0,1fr)_auto] gap-4 md:gap-6 items-center py-5 md:py-6"
-      >
-        <div className="w-16 h-16 md:w-24 md:h-20 bg-muted overflow-hidden shrink-0">
-          {entry.cover ? (
-            <img
-              src={entry.cover}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-90"
-            />
-          ) : null}
-        </div>
-        <div className="min-w-0">
-          <h3 className="text-base md:text-lg font-medium tracking-tighter leading-snug truncate">
-            {entry.title}
-          </h3>
-          {entry.excerpt ? (
-            <p className="mt-1 text-sm text-muted-foreground line-clamp-1">{entry.excerpt}</p>
-          ) : null}
-          <div className="mt-1 md:hidden text-xs text-muted-foreground">
-            <time dateTime={entry.date}>{formatDate(entry.date)}</time>
-            <span aria-hidden> · </span>
-            <span>{categoryLabel(entry.category)}</span>
-          </div>
-        </div>
-        <div className="hidden md:block text-xs text-muted-foreground text-right shrink-0">
-          <time dateTime={entry.date}>{formatDate(entry.date)}</time>
-          <div className="mt-1">{categoryLabel(entry.category)}</div>
-        </div>
-      </Link>
-    </li>
-  );
-}
