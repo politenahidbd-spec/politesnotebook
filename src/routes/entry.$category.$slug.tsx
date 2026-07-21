@@ -67,24 +67,28 @@ function EntryPage() {
               </>
             ) : null}
           </div>
-          <h1 className="mt-4 text-3xl md:text-5xl font-medium tracking-tightest leading-[1.1]">
+          <h1 className="mt-4 text-3xl md:text-4xl font-medium tracking-tightest leading-[1.15]">
             {entry.title}
           </h1>
           {entry.excerpt ? (
-            <p className="mt-5 text-lg text-muted-foreground leading-relaxed">{entry.excerpt}</p>
+            <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">{entry.excerpt}</p>
           ) : null}
         </header>
 
         {entry.cover ? (
-          <div className="mt-12 md:mt-16">
-            <div className="container-editorial">
-              <img src={entry.cover} alt="" width={2000} height={1333} className="w-full h-auto" />
-            </div>
-          </div>
+          <figure className="mt-10 md:mt-14 container-figure">
+            <img
+              src={entry.cover}
+              alt={entry.title}
+              loading="eager"
+              decoding="async"
+              className="block w-full h-auto"
+            />
+          </figure>
         ) : null}
 
         {entry.category === "films" && entry.video ? (
-          <div className="container-editorial mt-12">
+          <div className="container-figure mt-10 md:mt-14">
             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
               <iframe
                 src={entry.video}
@@ -100,12 +104,13 @@ function EntryPage() {
         <div className="container-reading mt-12 md:mt-16 prose-notebook" dangerouslySetInnerHTML={{ __html: entry.html }} />
 
         {entry.category === "photography" && entry.gallery && entry.gallery.length > 0 ? (
-          <div className="container-editorial mt-16 space-y-16">
+          <div className="container-figure mt-14 md:mt-20 space-y-10 md:space-y-14">
             {entry.gallery.map((src: string, i: number) => (
-              <img key={i} src={src} alt="" loading="lazy" width={2000} height={1333} className="w-full h-auto" />
+              <img key={i} src={src} alt={`${entry.title} — image ${i + 1}`} loading="lazy" decoding="async" className="block w-full h-auto" />
             ))}
           </div>
         ) : null}
+
 
         <nav className="container-reading mt-24 pt-8 border-t border-rule flex justify-between gap-6 text-sm">
           <div className="flex-1">
