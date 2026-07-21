@@ -16,6 +16,7 @@ export interface Entry {
   video?: string;
   gallery?: string[];
   draft?: boolean;
+  featured?: boolean;
   body: string;
   html: string;
   readingTime: number;
@@ -90,6 +91,7 @@ const entries: Entry[] = Object.entries(raw)
       video: data.video as string | undefined,
       gallery: (data.gallery as string[]) || [],
       draft: Boolean(data.draft),
+      featured: Boolean(data.featured),
       body,
       html: marked.parse(body, { async: false }) as string,
       readingTime: readingTimeFrom(body),
@@ -101,6 +103,14 @@ const entries: Entry[] = Object.entries(raw)
 export function getAllEntries(): Entry[] {
   return entries;
 }
+
+export function getFeaturedEntry(): Entry | undefined {
+  const eligible = entries.filter(e => e.category !== "notes");
+  const marked = eligible.filter(e => e.featured);
+  if (marked.length > 0) return marked[0];
+  return eligible[0];
+}
+
 
 export function getEntriesByCategory(cat: Category): Entry[] {
   return entries.filter(e => e.category === cat);

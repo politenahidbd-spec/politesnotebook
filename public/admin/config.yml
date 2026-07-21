@@ -26,6 +26,7 @@ collections:
       - { name: "gallery", label: "Gallery Images", widget: "list", field: { name: "image", label: "Image", widget: "image" }, required: false }
       - { name: "excerpt", label: "Excerpt", widget: "text", required: false }
       - { name: "draft", label: "Draft", widget: "boolean", default: false, required: false }
+      - { name: "featured", label: "Featured on homepage", widget: "boolean", default: false, required: false }
       - { name: "body", label: "Body", widget: "markdown" }
 
   - name: "writing"
@@ -43,6 +44,7 @@ collections:
       - { name: "cover", label: "Cover Image", widget: "image", required: false }
       - { name: "excerpt", label: "Excerpt", widget: "text", required: false }
       - { name: "draft", label: "Draft", widget: "boolean", default: false, required: false }
+      - { name: "featured", label: "Featured on homepage", widget: "boolean", default: false, required: false }
       - { name: "body", label: "Body", widget: "markdown" }
 
   - name: "films"
@@ -63,6 +65,7 @@ collections:
       - { name: "tags", label: "Tags", widget: "list", required: false }
       - { name: "excerpt", label: "Description", widget: "text", required: false }
       - { name: "draft", label: "Draft", widget: "boolean", default: false, required: false }
+      - { name: "featured", label: "Featured on homepage", widget: "boolean", default: false, required: false }
       - { name: "body", label: "Body", widget: "markdown" }
 
   - name: "notes"
