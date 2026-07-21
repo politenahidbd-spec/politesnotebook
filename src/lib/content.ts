@@ -16,6 +16,7 @@ export interface Entry {
   video?: string;
   gallery?: string[];
   draft?: boolean;
+  featured?: boolean;
   body: string;
   html: string;
   readingTime: number;
