@@ -50,11 +50,11 @@ function Home() {
         {archive.length === 0 ? (
           <p className="text-muted-foreground text-sm">The notebook is empty.</p>
         ) : (
-          <ul className="divide-y divide-rule">
+          <div className="grid gap-12 md:gap-16 md:grid-cols-2">
             {archive.map((entry) => (
-              <ArchiveRow key={`${entry.category}-${entry.slug}`} entry={entry} />
+              <EntryCard key={`${entry.category}-${entry.slug}`} entry={entry} />
             ))}
-          </ul>
+          </div>
         )}
       </section>
     </SiteLayout>
