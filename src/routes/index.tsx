@@ -51,20 +51,9 @@ function Home() {
           <p className="text-muted-foreground text-sm">The notebook is empty.</p>
         ) : (
           <div className="grid gap-12 md:gap-16 md:grid-cols-2">
-            <div className="flex flex-col gap-12 md:gap-16">
-              {archive
-                .filter((e) => e.category !== "notes")
-                .map((entry) => (
-                  <EntryCard key={`${entry.category}-${entry.slug}`} entry={entry} />
-                ))}
-            </div>
-            <div className="flex flex-col gap-12 md:gap-16">
-              {archive
-                .filter((e) => e.category === "notes")
-                .map((entry) => (
-                  <EntryCard key={`${entry.category}-${entry.slug}`} entry={entry} />
-                ))}
-            </div>
+            {archive.map((entry) => (
+              <EntryCard key={`${entry.category}-${entry.slug}`} entry={entry} />
+            ))}
           </div>
         )}
       </section>
