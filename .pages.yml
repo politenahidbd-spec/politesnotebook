@@ -1,85 +1,82 @@
-backend:
-  name: github
-  repo: politenahidbd-spec/politesnotebook
-  branch: main
+media:
+  input: public/uploads
+  output: /uploads
 
-media_folder: "public/uploads"
-public_folder: "/uploads"
-
-publish_mode: simple
-
-collections:
-  - name: "photography"
-    label: "Photography"
-    folder: "src/content/photography"
-    create: true
-    slug: "{{slug}}"
-    extension: "md"
-    format: "frontmatter"
+content:
+  - name: photography
+    label: Photography
+    type: collection
+    path: src/content/photography
+    filename: "{primary}.md"
+    view:
+      fields: [title, date]
     fields:
-      - { name: "title", label: "Title", widget: "string" }
-      - { name: "date", label: "Date", widget: "datetime" }
-      - { name: "slug", label: "Slug", widget: "string" }
-      - { name: "year", label: "Year", widget: "string", required: false }
-      - { name: "location", label: "Location", widget: "string", required: false }
-      - { name: "tags", label: "Tags", widget: "list", required: false }
-      - { name: "cover", label: "Cover Image", widget: "image", required: false }
-      - { name: "gallery", label: "Gallery Images", widget: "list", field: { name: "image", label: "Image", widget: "image" }, required: false }
-      - { name: "excerpt", label: "Excerpt", widget: "text", required: false }
-      - { name: "draft", label: "Draft", widget: "boolean", default: false, required: false }
-      - { name: "featured", label: "Featured on homepage", widget: "boolean", default: false, required: false }
-      - { name: "body", label: "Body", widget: "markdown" }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: slug, label: Slug, type: string, required: true }
+      - { name: year, label: Year, type: string }
+      - { name: location, label: Location, type: string }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: cover, label: Cover Image, type: image }
+      - name: gallery
+        label: Gallery
+        type: image
+        list: true
+      - { name: excerpt, label: Excerpt, type: text }
+      - { name: draft, label: Draft, type: boolean, default: false }
+      - { name: featured, label: Featured, type: boolean, default: false }
+      - { name: body, label: Body, type: rich-text }
 
-  - name: "writing"
-    label: "Writing"
-    folder: "src/content/writing"
-    create: true
-    slug: "{{slug}}"
-    extension: "md"
-    format: "frontmatter"
+  - name: writing
+    label: Writing
+    type: collection
+    path: src/content/writing
+    filename: "{primary}.md"
+    view:
+      fields: [title, date]
     fields:
-      - { name: "title", label: "Title", widget: "string" }
-      - { name: "date", label: "Date", widget: "datetime" }
-      - { name: "slug", label: "Slug", widget: "string" }
-      - { name: "tags", label: "Tags", widget: "list", required: false }
-      - { name: "cover", label: "Cover Image", widget: "image", required: false }
-      - { name: "excerpt", label: "Excerpt", widget: "text", required: false }
-      - { name: "draft", label: "Draft", widget: "boolean", default: false, required: false }
-      - { name: "featured", label: "Featured on homepage", widget: "boolean", default: false, required: false }
-      - { name: "body", label: "Body", widget: "markdown" }
+      - { name: title, label: Title, type: string }
+      - { name: date, label: Date, type: date }
+      - { name: slug, label: Slug, type: string }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: cover, label: Cover Image, type: image }
+      - { name: excerpt, label: Excerpt, type: text }
+      - { name: draft, label: Draft, type: boolean, default: false }
+      - { name: featured, label: Featured, type: boolean, default: false }
+      - { name: body, label: Body, type: rich-text }
 
-  - name: "films"
-    label: "Films"
-    folder: "src/content/films"
-    create: true
-    slug: "{{slug}}"
-    extension: "md"
-    format: "frontmatter"
+  - name: films
+    label: Films
+    type: collection
+    path: src/content/films
+    filename: "{primary}.md"
+    view:
+      fields: [title, year]
     fields:
-      - { name: "title", label: "Title", widget: "string" }
-      - { name: "date", label: "Date", widget: "datetime" }
-      - { name: "slug", label: "Slug", widget: "string" }
-      - { name: "year", label: "Year", widget: "string", required: false }
-      - { name: "duration", label: "Duration", widget: "string", required: false }
-      - { name: "video", label: "Video embed URL (YouTube/Vimeo)", widget: "string", required: false }
-      - { name: "cover", label: "Thumbnail", widget: "image", required: false }
-      - { name: "tags", label: "Tags", widget: "list", required: false }
-      - { name: "excerpt", label: "Description", widget: "text", required: false }
-      - { name: "draft", label: "Draft", widget: "boolean", default: false, required: false }
-      - { name: "featured", label: "Featured on homepage", widget: "boolean", default: false, required: false }
-      - { name: "body", label: "Body", widget: "markdown" }
+      - { name: title, label: Title, type: string }
+      - { name: date, label: Date, type: date }
+      - { name: slug, label: Slug, type: string }
+      - { name: year, label: Year, type: string }
+      - { name: duration, label: Duration, type: string }
+      - { name: video, label: Video URL, type: string }
+      - { name: cover, label: Thumbnail, type: image }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: excerpt, label: Description, type: text }
+      - { name: draft, label: Draft, type: boolean, default: false }
+      - { name: featured, label: Featured, type: boolean, default: false }
+      - { name: body, label: Body, type: rich-text }
 
-  - name: "notes"
-    label: "Notes"
-    folder: "src/content/notes"
-    create: true
-    slug: "{{slug}}"
-    extension: "md"
-    format: "frontmatter"
+  - name: notes
+    label: Notes
+    type: collection
+    path: src/content/notes
+    filename: "{primary}.md"
+    view:
+      fields: [title, date]
     fields:
-      - { name: "title", label: "Title", widget: "string" }
-      - { name: "date", label: "Date", widget: "datetime" }
-      - { name: "slug", label: "Slug", widget: "string" }
-      - { name: "tags", label: "Tags", widget: "list", required: false }
-      - { name: "draft", label: "Draft", widget: "boolean", default: false, required: false }
-      - { name: "body", label: "Body", widget: "markdown" }
+      - { name: title, label: Title, type: string }
+      - { name: date, label: Date, type: date }
+      - { name: slug, label: Slug, type: string }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: draft, label: Draft, type: boolean, default: false }
+      - { name: body, label: Body, type: rich-text }
