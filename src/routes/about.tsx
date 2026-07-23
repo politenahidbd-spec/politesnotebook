@@ -23,20 +23,24 @@ function About() {
         <h1 className="mt-4 text-4xl md:text-5xl font-medium tracking-tightest">A short note.</h1>
 
         <p>
-          I'm Polite Nahid. I take photographs, write down what I notice, and sometimes make short films.
-          This place isn't a portfolio — it's a notebook I've been keeping in public.
-        </p>
-        <p>
-          I'm curious more than I am certain. Most of what lives here started as a small observation:
-          a face on a train, a paragraph I couldn't shake, a colour of light I wanted to remember.
-          I try to move slowly, look closely, and leave room for the things I don't yet understand.
-        </p>
-        <p>
-          The tools change — a camera, a pen, a lens, a piece of software — but the intention is
-          simple. Pay attention. Make something honest. Come back tomorrow and try again.
-        </p>
-        <p>
-          Thank you for reading. If something here means anything to you, that is more than enough.
+          Nothing here is finished. Neither am I. I'm Polite Nahid.
+
+Most weekdays, you'll find me working full-time as a Video Journalist. In between deadlines, I somehow manage to stay enrolled in a Journalism and Media Studies program. Whatever time survives after those two, I spend on whatever feels worth doing that day.
+
+Sometimes that means carrying a camera.
+Sometimes reading a novel I should've finished weeks ago.
+Sometimes watching a film just to admire a single scene.
+And sometimes... absolutely nothing useful.
+
+On days off, if work doesn't find me first, I might walk 10 or 15 kilometers with no destination in mind. Other days, I'll end up at Chandrima Udyan, lying beside the lake, watching crows argue in the trees as if they have somewhere far more important to be than the rest of us. They probably don't. Neither do I.
+
+I'm interested in stories that don't announce themselves. The quiet ones. The ordinary ones. The people who rarely become headlines, yet somehow carry the weight of entire cities.
+Photography taught me to notice. Journalism taught me to ask. Cinema taught me that silence can sometimes say more than dialogue ever could. I'm still trying to learn how to combine all three without getting in their way.
+
+This website isn't a portfolio pretending everything here is my best work. It's closer to a notebook. A place where photographs, writing, ideas, and unfinished thoughts end up before I completely figure them out. Some pieces will feel polished. Others will probably remain beautifully incomplete.
+
+I'm still learning, still changing my mind, still chasing stories, and still convinced that taking "just one more photo" is a perfectly reasonable decision.
+If you made it this far, thanks for spending a few minutes in my little corner of the internet.
         </p>
       </article>
     </SiteLayout>
