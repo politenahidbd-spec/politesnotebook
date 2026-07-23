@@ -7,7 +7,8 @@ content:
     label: Photography
     type: collection
     path: src/content/photography
-    filename: "{primary}.md"
+    filename: "{slug}.md"
+    format: yaml-frontmatter
     view:
       fields: [title, date]
     fields:
@@ -31,10 +32,58 @@ content:
     label: Writing
     type: collection
     path: src/content/writing
-    filename: "{primary}.md"
+    filename: "{slug}.md"
+    format: yaml-frontmatter
     view:
       fields: [title, date]
     fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: slug, label: Slug, type: string, required: true }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: cover, label: Cover Image, type: image }
+      - { name: excerpt, label: Excerpt, type: text }
+      - { name: draft, label: Draft, type: boolean, default: false }
+      - { name: featured, label: Featured, type: boolean, default: false }
+      - { name: body, label: Body, type: rich-text }
+
+  - name: films
+    label: Films
+    type: collection
+    path: src/content/films
+    filename: "{slug}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [title, year]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: slug, label: Slug, type: string, required: true }
+      - { name: year, label: Year, type: string }
+      - { name: duration, label: Duration, type: string }
+      - { name: video, label: Video URL, type: string }
+      - { name: cover, label: Thumbnail, type: image }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: excerpt, label: Description, type: text }
+      - { name: draft, label: Draft, type: boolean, default: false }
+      - { name: featured, label: Featured, type: boolean, default: false }
+      - { name: body, label: Body, type: rich-text }
+
+  - name: notes
+    label: Notes
+    type: collection
+    path: src/content/notes
+    filename: "{slug}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [title, date]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: slug, label: Slug, type: string, required: true }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: draft, label: Draft, type: boolean, default: false }
+      - { name: body, label: Body, type: rich-text }    fields:
       - { name: title, label: Title, type: string }
       - { name: date, label: Date, type: date }
       - { name: slug, label: Slug, type: string }
