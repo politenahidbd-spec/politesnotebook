@@ -21,9 +21,9 @@ function About() {
       <article className="container-reading pt-16 md:pt-24 pb-24 prose-notebook">
         <p className="text-xs uppercase tracking-widest text-muted-foreground not-prose">About</p>
         <h1 className="mt-4 text-4xl md:text-5xl font-medium tracking-tightest">A short note.</h1>
-
+<br>
         <section class="about">
-  <p><strong>Nothing here is finished. Neither am I. I'm Polite Nahid.</strong></p>
+  <p>Nothing here is finished. Neither am I. I'm <strong>Polite Nahid.</strong></p>
 
   <p>
     Most weekdays, I'm working full-time as a Video Journalist while trying to
@@ -32,7 +32,7 @@ function About() {
   </p>
 
   <p>
-    Sometimes that's carrying a camera. Sometimes reading a novel I should've
+    Sometimes reading a novel I should've
     finished weeks ago. Sometimes watching a film for a single unforgettable
     scene.
   </p>
