@@ -73,6 +73,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://rsms.me" },
       { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+{ rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+{
+  rel: "stylesheet",
+  href: "https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap",
+},
       { rel: "alternate", type: "application/rss+xml", title: "Polite Nahid — Notebook", href: "/rss.xml" },
     ],
     scripts: [
