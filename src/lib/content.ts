@@ -181,4 +181,13 @@ export function formatDate(iso: string): string {
 
   if (isNaN(d.getTime())) return iso;
 
-  return d.toLocaleDateString("en-US
+    return d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
+export function categoryLabel(c: Category): string {
+  return c.charAt(0).toUpperCase() + c.slice(1);
+}
