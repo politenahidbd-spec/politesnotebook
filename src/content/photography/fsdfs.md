@@ -12,6 +12,10 @@ tags:
 gallery:
   - /uploads/a winter morning/IMG_3400.webp
   - /uploads/a winter morning/IMG_3404.webp
+  - /uploads/a winter morning/LRM_20260104_085429 (1).webp
+  - /uploads/a winter morning/LRM_20260104_091105.webp
+  - /uploads/a winter morning/LRM_20260104_092243.webp
+  - /uploads/a winter morning/LRM_20260104_090908.webp
 excerpt: শীতসকালের একটা স্বভাব আছে, আপনাকে একবারে সব দেখে ফেলতে দেবে না। এ হলো
   কুয়াশার একান্তই নিজস্ব লুকোচুরি।
 draft: false
