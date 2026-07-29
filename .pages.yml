@@ -7,9 +7,9 @@ content:
     label: Photography
     type: collection
     path: src/content/photography
-filename:
-  template: "{fields.slug}.md"
-  field: false
+    filename:
+      template: "{fields.slug}.md"
+      field: false
     format: yaml-frontmatter
     view:
       fields: [title, date]
@@ -34,9 +34,9 @@ filename:
     label: Writing
     type: collection
     path: src/content/writing
-filename:
-  template: "{fields.slug}.md"
-  field: false
+    filename:
+      template: "{fields.slug}.md"
+      field: false
     format: yaml-frontmatter
     view:
       fields: [title, date]
@@ -55,9 +55,9 @@ filename:
     label: Films
     type: collection
     path: src/content/films
-filename:
-  template: "{fields.slug}.md"
-  field: false
+    filename:
+      template: "{fields.slug}.md"
+      field: false
     format: yaml-frontmatter
     view:
       fields: [title, year]
@@ -79,9 +79,9 @@ filename:
     label: Notes
     type: collection
     path: src/content/notes
-filename:
-  template: "{fields.slug}.md"
-  field: false
+    filename:
+      template: "{fields.slug}.md"
+      field: false
     format: yaml-frontmatter
     view:
       fields: [title, date]
