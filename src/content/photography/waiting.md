@@ -7,8 +7,6 @@ location: Barishal
 tags:
   - photography
 cover: /uploads/LRM_20230706_135427.webp
-gallery:
-  - /uploads/LRM_20230706_135427.webp
 excerpt: ধীরে ধীরে হারিয়ে যেতে থাকা একটি জীবনের প্রতিচ্ছবি।
 draft: false
 featured: false
