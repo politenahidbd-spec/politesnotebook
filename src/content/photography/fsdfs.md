@@ -9,9 +9,10 @@ tags:
   - photography
   - winter
   - foggy
+cover: /uploads/a winter morning/IMG_3404.webp
 gallery:
-  - /uploads/a winter morning/IMG_3400.webp
   - /uploads/a winter morning/IMG_3404.webp
+  - /uploads/a winter morning/IMG_3400.webp
   - /uploads/a winter morning/LRM_20260104_085429 (1).webp
   - /uploads/a winter morning/LRM_20260104_091105.webp
   - /uploads/a winter morning/LRM_20260104_092243.webp
