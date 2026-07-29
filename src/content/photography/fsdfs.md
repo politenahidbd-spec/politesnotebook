@@ -11,6 +11,7 @@ tags:
   - foggy
 gallery:
   - /uploads/a winter morning/IMG_3400.webp
+  - /uploads/a winter morning/IMG_3404.webp
 draft: false
 featured: false
 ---
