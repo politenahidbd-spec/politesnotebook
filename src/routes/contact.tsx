@@ -13,17 +13,16 @@ export const Route = createFileRoute("/contact")({
 });
 
 const links = [
-  { label: "Email", href: "mailto:hello@politenahid.com", display: "hello@politenahid.com" },
-  { label: "Instagram", href: "https://instagram.com/politenahid", display: "@politenahid" },
+  { label: "Email", href: "mailto:polite.dhk@gmail.com", display: "polite.dhk@gmail.com" },
+  { label: "Instagram", href: "https://instagram.com/poltu_uuu", display: "@poltu_uuu" },
   { label: "LinkedIn", href: "https://linkedin.com/in/politenahid", display: "in/politenahid" },
-  { label: "GitHub", href: "https://github.com/politenahid", display: "@politenahid" },
+  { label: "Facebook", href: "https://www.facebook.com/poltu.nahid", display: "@poltu.nahid" },
 ];
 
 function Contact() {
   return (
     <SiteLayout>
       <section className="container-reading pt-16 md:pt-24 pb-24">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">Contact</p>
         <h1 className="mt-4 text-4xl md:text-5xl font-medium tracking-tightest">Say hello.</h1>
 
         <ul className="mt-12 divide-y divide-rule">
