@@ -1,7 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { EntryCard } from "@/components/entry-card";
-import { getAllEntries, getFeaturedEntry, categoryLabel, formatDate, type Entry } from "@/lib/content";
+import {
+  getAllEntries,
+  getFeaturedEntry,
+  categoryLabel,
+  formatDate,
+  type Entry,
+} from "@/lib/content";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -13,9 +19,51 @@ export const Route = createFileRoute("/")({
 function Home() {
   const entries = getAllEntries();
   const featured = getFeaturedEntry();
+
   const archive = entries.filter(
-    (e) => !(featured && e.category === featured.category && e.slug === featured.slug),
+    (e) =>
+      !(
+        featured &&
+        e.category === featured.category &&
+        e.slug === featured.slug
+      ),
   );
+
+  const heavy = archive.filter(
+    (e) => e.category === "photography" || e.category === "films",
+  );
+
+  const light = archive.filter(
+    (e) => e.category === "notes" || e.category === "writing",
+  );
+
+  const rows: Array<[Entry | undefined, Entry | undefined]> = [];
+
+  let h = 0;
+  let l = 0;
+  let heavyLeft = true;
+
+  while (h < heavy.length || l < light.length) {
+    let left: Entry | undefined;
+    let right: Entry | undefined;
+
+    if (heavyLeft) {
+      if (h < heavy.length) left = heavy[h++];
+      else if (l < light.length) left = light[l++];
+
+      if (l < light.length) right = light[l++];
+      else if (h < heavy.length) right = heavy[h++];
+    } else {
+      if (l < light.length) left = light[l++];
+      else if (h < heavy.length) left = heavy[h++];
+
+      if (h < heavy.length) right = heavy[h++];
+      else if (l < light.length) right = light[l++];
+    }
+
+    rows.push([left, right]);
+    heavyLeft = !heavyLeft;
+  }
 
   return (
     <SiteLayout>
@@ -23,6 +71,7 @@ function Home() {
         <h1 className="mt-4 text-4xl md:text-5xl font-medium tracking-tightest leading-[1.1] max-w-3xl">
           Things I noticed.
         </h1>
+
         <p className="mt-5 text-lg text-muted-foreground max-w-xl leading-relaxed">
           Photographs, writings, films and notes. By{" "}
           <Link
@@ -47,11 +96,20 @@ function Home() {
         </h2>
 
         {archive.length === 0 ? (
-          <p className="text-muted-foreground text-sm">The notebook is empty.</p>
+          <p className="text-muted-foreground text-sm">
+            The notebook is empty.
+          </p>
         ) : (
-          <div className="grid gap-12 md:gap-16 md:grid-cols-2">
-            {archive.map((entry) => (
-              <EntryCard key={`${entry.category}-${entry.slug}`} entry={entry} />
+          <div className="space-y-14 md:space-y-20">
+            {rows.map(([left, right], index) => (
+              <div
+                key={index}
+                className="grid gap-12 md:gap-16 md:grid-cols-2 md:items-start"
+              >
+                <div>{left ? <EntryCard entry={left} /> : null}</div>
+
+                <div>{right ? <EntryCard entry={right} /> : null}</div>
+              </div>
             ))}
           </div>
         )}
@@ -85,7 +143,10 @@ function FeaturedStory({ entry }: { entry: Entry }) {
         </div>
 
         <div className="md:col-span-5 lg:col-span-4">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Featured</p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+            Featured
+          </p>
+
           <h1 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-medium tracking-tightest leading-[1.15]">
             <Link
               to="/entry/$category/$slug"
@@ -95,14 +156,19 @@ function FeaturedStory({ entry }: { entry: Entry }) {
               {entry.title}
             </Link>
           </h1>
+
           <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
             <time dateTime={entry.date}>{formatDate(entry.date)}</time>
             <span aria-hidden>·</span>
             <span>{categoryLabel(entry.category)}</span>
           </div>
+
           {entry.excerpt ? (
-            <p className="mt-6 text-base text-muted-foreground leading-relaxed">{entry.excerpt}</p>
+            <p className="mt-6 text-base text-muted-foreground leading-relaxed">
+              {entry.excerpt}
+            </p>
           ) : null}
+
           <div className="mt-8">
             <Link
               to="/entry/$category/$slug"
@@ -117,4 +183,3 @@ function FeaturedStory({ entry }: { entry: Entry }) {
     </section>
   );
 }
-
