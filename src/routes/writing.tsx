@@ -21,7 +21,6 @@ function Writing() {
   return (
     <SiteLayout>
       <section className="container-reading pt-16 pb-8">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">Writing</p>
         <h1 className="mt-4 text-4xl md:text-5xl font-medium tracking-tightest">Essays, meant to be read slowly.</h1>
       </section>
 
