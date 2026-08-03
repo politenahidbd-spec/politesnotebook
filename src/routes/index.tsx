@@ -20,7 +20,6 @@ function Home() {
   return (
     <SiteLayout>
       <section className="container-editorial pt-16 md:pt-24 pb-10 md:pb-14">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">The notebook</p>
         <h1 className="mt-4 text-4xl md:text-5xl font-medium tracking-tightest leading-[1.1] max-w-3xl">
           Things I noticed.
         </h1>
