@@ -21,7 +21,6 @@ function Notes() {
   return (
     <SiteLayout>
       <section className="container-reading pt-16 pb-8">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">Notes</p>
         <h1 className="mt-4 text-4xl md:text-5xl font-medium tracking-tightest">Small things, kept.</h1>
       </section>
 
