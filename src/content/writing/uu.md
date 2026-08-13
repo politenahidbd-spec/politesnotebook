@@ -9,7 +9,8 @@ tags:
   - Erving Goffman
   - Persona
 cover: /uploads/60a825b16b5f81a155905554bcc2ed523dc364e0fcdef97250022ec56ead8c96.png
-excerpt: Persona ও সামাজিক মুখোশ নিয়ে কিছু ভাবনা।
+excerpt: আমরা প্রত্যেকে একেকটি মঞ্চে দাঁড়িয়ে। দর্শক বদলায়, চরিত্র বদলায়,
+  সংলাপ বদলায়। প্রশ্ন শুধু একটাই, মঞ্চ ছাড়ার পর কে থাকে?
 draft: false
 featured: true
 ---
