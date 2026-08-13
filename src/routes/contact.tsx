@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
@@ -7,8 +8,9 @@ export const Route = createFileRoute("/contact")({
     meta: [
       { title: "Contact — Polite Nahid" },
       { name: "description", content: "Get in touch with Polite Nahid." },
+      { property: "og:url", content: absoluteUrl("/contact") },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/contact") }],
   }),
 });
 

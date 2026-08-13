@@ -2,11 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { EntryCard } from "@/components/entry-card";
 import { getAllEntries, getFeaturedEntry, categoryLabel, formatDate, type Entry } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: absoluteUrl() }],
   }),
 });
 

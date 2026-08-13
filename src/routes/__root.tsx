@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteLayout } from "@/components/site-layout";
+import { absoluteUrl } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -62,10 +63,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Polite Nahid — Notebook" },
       { name: "description", content: "Things I noticed. Photographs, writings, films and notes by Polite Nahid." },
       { name: "author", content: "Polite Nahid" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
       { property: "og:title", content: "Polite Nahid — Notebook" },
       { property: "og:description", content: "Things I noticed. Photographs, writings, films and notes." },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Polite Nahid" },
+      { property: "og:url", content: absoluteUrl() },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -83,7 +86,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "Person",
           name: "Polite Nahid",
           jobTitle: "Photographer, writer, filmmaker",
-          url: "/",
+          url: absoluteUrl(),
+          sameAs: [
+            "https://instagram.com/politenahid",
+            "https://linkedin.com/in/politenahid",
+            "https://github.com/politenahid",
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Polite Nahid — Notebook",
+          url: absoluteUrl(),
+          description: "Photographs, writings, films and notes by Polite Nahid.",
+          inLanguage: "en",
+          publisher: { "@type": "Person", name: "Polite Nahid" },
         }),
       },
     ],

@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { SiteLayout } from "@/components/site-layout";
 import { EntryCard } from "@/components/entry-card";
 import { getAllEntries, type Category } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/notebook")({
   component: Notebook,
@@ -12,9 +13,9 @@ export const Route = createFileRoute("/notebook")({
       { name: "description", content: "The full archive of Polite Nahid's notebook — every photograph, essay, film and note in chronological order, filterable by category and searchable." },
       { property: "og:title", content: "Notebook — the full archive" },
       { property: "og:description", content: "Every entry in Polite Nahid's notebook, in chronological order — photographs, writing, films and short notes." },
-      { property: "og:url", content: "/notebook" },
+      { property: "og:url", content: absoluteUrl("/notebook") },
     ],
-    links: [{ rel: "canonical", href: "/notebook" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/notebook") }],
   }),
 });
 

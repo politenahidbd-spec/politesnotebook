@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { getEntriesByCategory, formatDate } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/notes")({
   component: Notes,
@@ -10,9 +11,9 @@ export const Route = createFileRoute("/notes")({
       { name: "description", content: "Short observations, overheard lines and marginalia by Polite Nahid — small notebook pages posted as they're written, in reverse chronological order." },
       { property: "og:title", content: "Notes — Polite Nahid" },
       { property: "og:description", content: "Short observations and marginalia — the smallest pages of the notebook, kept in reverse chronological order." },
-      { property: "og:url", content: "/notes" },
+      { property: "og:url", content: absoluteUrl("/notes") },
     ],
-    links: [{ rel: "canonical", href: "/notes" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/notes") }],
   }),
 });
 
