@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { getAllEntries, getEntry, categoryLabel, formatDate, type Category } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/entry/$category/$slug")({
   loader: ({ params }) => {
@@ -14,22 +15,28 @@ export const Route = createFileRoute("/entry/$category/$slug")({
       meta: [
         { title: `${loaderData.title} — Polite Nahid` },
         { name: "description", content: loaderData.excerpt ?? loaderData.title },
+        { property: "article:published_time", content: loaderData.date },
+        ...(loaderData.tags?.length ? [{ property: "article:tag", content: loaderData.tags.join(", ") }] : []),
         { property: "og:title", content: loaderData.title },
         { property: "og:description", content: loaderData.excerpt ?? "" },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/entry/${params.category}/${params.slug}` },
+        { property: "og:url", content: absoluteUrl(`/entry/${params.category}/${params.slug}`) },
         ...(loaderData.cover ? [{ property: "og:image", content: loaderData.cover }, { name: "twitter:image", content: loaderData.cover }] : []),
       ],
-      links: [{ rel: "canonical", href: `/entry/${params.category}/${params.slug}` }],
+      links: [{ rel: "canonical", href: absoluteUrl(`/entry/${params.category}/${params.slug}`) }],
       scripts: [{
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
           headline: loaderData.title,
+          description: loaderData.excerpt,
           datePublished: loaderData.date,
-          author: { "@type": "Person", name: "Polite Nahid" },
-          image: loaderData.cover,
+          author: { "@type": "Person", name: "Polite Nahid", url: absoluteUrl("/about") },
+          mainEntityOfPage: absoluteUrl(`/entry/${params.category}/${params.slug}`),
+          image: loaderData.cover ? absoluteUrl(loaderData.cover) : undefined,
+          keywords: loaderData.tags?.join(", "),
+          publisher: { "@type": "Person", name: "Polite Nahid" },
         }),
       }],
     };

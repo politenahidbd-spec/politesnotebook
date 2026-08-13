@@ -8,11 +8,12 @@ import {
   formatDate,
   type Entry,
 } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: absoluteUrl() }],
   }),
 });
 

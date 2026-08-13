@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { getEntriesByCategory, formatDate } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/photography")({
   component: Photography,
@@ -10,9 +11,9 @@ export const Route = createFileRoute("/photography")({
       { name: "description", content: "Photographic collections and visual stories by Polite Nahid — portraits, street scenes and long-form documentary work, shown in sequence rather than as galleries." },
       { property: "og:title", content: "Photography — Polite Nahid" },
       { property: "og:description", content: "Long-form photographic collections and documentary sequences — portraits, streets and quiet observations." },
-      { property: "og:url", content: "/photography" },
+      { property: "og:url", content: absoluteUrl("/photography") },
     ],
-    links: [{ rel: "canonical", href: "/photography" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/photography") }],
   }),
 });
 

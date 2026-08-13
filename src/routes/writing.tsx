@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { getEntriesByCategory, formatDate } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/writing")({
   component: Writing,
@@ -10,9 +11,9 @@ export const Route = createFileRoute("/writing")({
       { name: "description", content: "Essays and short pieces by Polite Nahid — reflections on photography, attention and craft, set in a book-like reading layout meant to be read slowly." },
       { property: "og:title", content: "Writing — Polite Nahid" },
       { property: "og:description", content: "Essays on photography, attention and craft — a book-like reading room inside the notebook." },
-      { property: "og:url", content: "/writing" },
+      { property: "og:url", content: absoluteUrl("/writing") },
     ],
-    links: [{ rel: "canonical", href: "/writing" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/writing") }],
   }),
 });
 

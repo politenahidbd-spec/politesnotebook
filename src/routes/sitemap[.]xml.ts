@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { getAllEntries } from "@/lib/content";
-
-const BASE_URL = "https://politesnotebook.lovable.app";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
@@ -26,7 +25,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           .map((u) =>
             [
               "  <url>",
-              `    <loc>${BASE_URL}${u.loc}</loc>`,
+              `    <loc>${absoluteUrl(u.loc)}</loc>`,
               u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>` : null,
               `    <changefreq>${u.changefreq}</changefreq>`,
               `    <priority>${u.priority}</priority>`,

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { getEntriesByCategory, formatDate } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 export const Route = createFileRoute("/films")({
   component: Films,
@@ -10,9 +11,9 @@ export const Route = createFileRoute("/films")({
       { name: "description", content: "Short films, documentary sketches and moving-image work by Polite Nahid — each piece documented with notes on how and why it was made." },
       { property: "og:title", content: "Films — Polite Nahid" },
       { property: "og:description", content: "Short films and documentary sketches, each shown alongside production notes and stills." },
-      { property: "og:url", content: "/films" },
+      { property: "og:url", content: absoluteUrl("/films") },
     ],
-    links: [{ rel: "canonical", href: "/films" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/films") }],
   }),
 });
 

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://politesnotebook.lovable.app/sitemap.xml
+Sitemap: https://politesnotebook.vercel.app/sitemap.xml
