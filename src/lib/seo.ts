@@ -1,4 +1,4 @@
-export const SITE_URL = "https://politesnotebook.lovable.app";
+export const SITE_URL = "https://politesnotebook.vercel.app";
 export const SITE_NAME = "Polite Nahid — Notebook";
 
 export function absoluteUrl(path = "/"): string {
